@@ -1,0 +1,72 @@
+.container {
+
+}
+
+.board {
+    width: 80%;
+    display: flex;
+    max-width: unset;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+}
+.reservation{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2em;
+    color: #4C8056;
+    font-size: 1em;
+    line-height: 2.2em;
+    padding:0.5em;
+    margin:0.5em;
+    font-weight: bold;
+    text-align:center;
+}
+.wraper > img {
+    width: 100%;
+}
+
+.left_bar {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2em;
+    color: #4C8056;
+    font-size: 1em;
+    margin:1em;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    max-width: unset;
+    flex-direction: column;
+    justify-content: center;
+    height: inherit;
+}
+.left_bar > a{
+    padding:0.5em;
+    margin:0.5em;
+    text-decoration: none;
+    text-align: center;
+    color:inherit;
+    border-color: #4C8056;
+    border-radius: 1em;
+    border-width: 2px;
+    border-style: solid;
+}
+.left_bar > a:hover, .left_bar > a:active{
+    
+    background-color: #4C8056;
+    color: white;
+}
+
+
+
+table{
+    width: 100%;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+  }
+@media only screen and (max-device-width: 992px){
+    .left_bar{
+        flex-direction: row;
+        justify-content: center;
+    }
+}
