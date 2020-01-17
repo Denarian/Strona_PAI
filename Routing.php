@@ -12,11 +12,23 @@ class Routing {
         $this->routes = [
             'board' => [
                 'controller' => 'BoardController',
-                'action' => 'getLatestPhotos'
+                'action' => 'reservations'
+            ],
+            'accountDetails' => [
+                'controller' => 'BoardController',
+                'action' => 'accountDetails'
+            ],
+            'passwordChange' => [
+                'controller' => 'BoardController',
+                'action' => 'passwordChange'
             ],
             'login' => [
                 'controller' => 'SecurityController',
                 'action' => 'login'
+            ],
+            'register' => [
+                'controller' => 'SecurityController',
+                'action' => 'register'
             ],
             'logout' => [
                 'controller' => 'SecurityController',
@@ -30,6 +42,7 @@ class Routing {
                 'controller' => 'MainController',
                 'action' => 'main'
             ]
+            
         ];
     }
 

@@ -21,7 +21,7 @@ class SecurityController extends AppController {
                 return;
             }
 
-            if ($user->getPassword() !== $password) {
+            if (!password_verify($password,$user->getPassword()) ) {
                 $this->render('login', ['messages' => ['Wrong password!']]);
                 return;
             }
@@ -43,5 +43,48 @@ class SecurityController extends AppController {
         session_destroy();
 
         $this->render('login', ['messages' => ['You have been successfully logged out!']]);
+    }
+    public function register()
+    {
+        $userRepository = new UserRepository();
+        if ($this->isPost()) {
+            $email = $_POST['email'];
+            $password = password_hash($_POST['password'],PASSWORD_DEFAULT) ;
+            $name = $_POST['name'];
+            $surname = $_POST['surname'];
+            $address = $_POST['address'];
+            $city = $_POST['city'];
+            $zipcode = $_POST['zipcode'];
+
+            $user = $userRepository->getUser($email);
+
+            if ($user) {
+                $this->render('register', ['messages' => ['This email is taken!']]);
+                return;
+            }
+            $user = new User(
+                $email,
+                $password,
+                $name,
+                $surname,
+                null,
+                null,
+                $address,
+                $city,
+                $zipcode
+            );
+            $userRepository->newUser($user);
+
+            $user = $userRepository->getUser($email);
+            
+            $_SESSION["id"] = $user->getEmail();
+            $_SESSION["role"] = $user->getRole();
+
+            $url = "http://$_SERVER[HTTP_HOST]/";
+            header("Location: {$url}?page=board");
+            return;
+        }
+
+        $this->render('register');
     }
 }

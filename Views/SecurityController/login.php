@@ -24,10 +24,22 @@
                         }
                     ?>
                 </div>
-                <input name="email" type="text" placeholder="email@email.com">
-                <input name="password" type="password" placeholder="password">
+                <div>
+                    <div class="reg_form_left">Email</div>
+                    <div class="reg_form_right">
+                        <input class="reg_form" name="email" type="text" placeholder="email@email.com">
+                    </div>
+                </div>
+                <div>
+                    <div class="reg_form_left">Password</div>
+                    <div class="reg_form_right">
+                        <input class="reg_form" name="password" type="password" placeholder="password">
+                    </div>
+                </div>
                 <button type="submit">CONTINUE</button>
+                <a href="/?page=register">Register</a>
             </form>
+            
         </div>
     </div>
 </div>

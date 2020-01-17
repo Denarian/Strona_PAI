@@ -23,7 +23,12 @@ class UserRepository extends Repository {
             $user['email'],
             $user['password'],
             $user['name'],
-            $user['surname']
+            $user['surname'],
+            $user['id'],
+            $user['role'],
+            $user['address'],
+            $user['city'],
+            $user['zipcode']
         );
     }
 
@@ -41,10 +46,40 @@ class UserRepository extends Repository {
                 $user['password'],
                 $user['name'],
                 $user['surname'],
-                $user['id']
+                $user['id'],
+                $user['role'],
+                $user['address'],
+                $user['city'],
+                $user['zipcode']
             );
         }
 
         return $result;
+    }
+    public function newUser(user $user)
+    {
+        $stmt = $this->database->connect()->prepare('
+        INSERT INTO `users` (`id`, `email`, `password`, `name`, `surname`, `role`, `address`, `city`, `zipcode`) 
+        VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?) 
+        ');
+        $data = array($user->getEmail(),$user->getPassword(),$user->getName(),$user->getSurname(),0,$user->getAddress(),$user->getCity(),$user->getZipcode());
+        $stmt->execute($data);
+    }
+    public function updateAccountDetails(user $user, string $oldEmail)
+    {
+        $stmt = $this->database->connect()->prepare('
+        UPDATE `users` SET `email` = ?,`name` = ?, `surname`= ?,`address` = ?, `city` = ?, `zipcode` = ? 
+        WHERE `email` = ?');
+        $data = array($user->getEmail(),$user->getName(),$user->getSurname(),$user->getAddress(),$user->getCity(),$user->getZipcode(), $oldEmail);
+        $stmt->execute($data);
+    }
+    public function changePassword(string $newPassword, $email)
+    {
+        $stmt = $this->database->connect()->prepare('
+        UPDATE `users` SET `password` = ?
+        WHERE `email` = ? 
+        ');
+        $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+        $stmt->execute([$newPassword, $email]);
     }
 }

@@ -85,31 +85,55 @@ body {
     align-items: center;
     flex-wrap: wrap;
     background: white 0% 0% no-repeat padding-box;
-    border-radius: 4em;
+    border-radius: inherit;
 }
 form {
     display: flex;
     flex-direction: column;
     height: 50%;
-    width: 30%;
+    width: 40%;
     justify-content: center;
 }
+input{
 
-form > input {
+}
+
+.reg_form {
     padding-left: 0.5em;
-    margin: 0 1em 1em 1em;
+    /*margin: 0 1em 1em 1em;*/
     background: #F1FFF4 0% 0% no-repeat padding-box;
-    border: 2px solid #4C8056;
-    border-radius: 0.5em;
-
+    border: 1px solid #4C8056;
+    width:100%;
     /* font */
     color: #4C8056;
     line-height: 2.5em;
     font-size: 1em;
 }
+form > div
+{   margin-top: 0.5em;
+    background-color:#4C8056 ;
+    width: 100%;
+    color: white;
+}
+.reg_form_right
+{
+    width: 60%;
+    display: inline-block;
+    text-align: right;
+}
+.reg_form_left
+{
+    background-color:#4C8056 ;
+    color: white;
+    width: 25%;
+    font-size: 1em;
+    display: inline-block;
+    padding: 1em;
+    text-transform: uppercase;
+}
 
 button {
-    margin: 0 1em 1em 1em;
+    margin: 1em 1em 1em 1em;
     color: white;
     background: #4C8056 0% 0% no-repeat padding-box;
     box-shadow: 0px 3px 6px #00000029;
@@ -128,6 +152,7 @@ button:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 1em;
 
 }
 
@@ -136,10 +161,12 @@ button:hover{
 }
 
 .messages {
-    color: #4C8056;
+    color: white;
     text-align: center;
     margin-bottom: 0.4em;
 }
+
+
 
 @media only screen and (max-device-width: 992px){
     body {

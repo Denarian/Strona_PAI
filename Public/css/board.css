@@ -10,6 +10,24 @@
     justify-content: center;
     height: inherit;
 }
+.account{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 2em;
+    color: #4C8056;
+    padding:1em;
+    margin:0.5em;
+}
+.account > form{
+    width: 100%
+}
+.reg_form_left{
+    width: 20%;
+    
+}
+.reg_form_right{
+    width: 65%;
+}
+
 .reservation{
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border-radius: 2em;
@@ -37,7 +55,7 @@
     max-width: unset;
     flex-direction: column;
     justify-content: center;
-    height: inherit;
+    height: 100%;
 }
 .left_bar > a{
     padding:0.5em;

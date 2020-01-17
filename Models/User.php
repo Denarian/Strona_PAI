@@ -6,20 +6,31 @@ class User {
     private $password;
     private $name;
     private $surname;
-    private $role = ['ROLE_USER'];
+    private $role = 0;
+    private $address;
+    private $city;
+    private $zipcode;
 
     public function __construct(
         string $email,
         string $password,
         string $name,
         string $surname,
-        int $id = null
+        int $id = null,
+        int $role = null,
+        string $address = null,
+        string $city = null,
+        string $zipcode = null
     ) {
         $this->email = $email;
         $this->password = $password;
         $this->name = $name;
         $this->surname = $surname;
         $this->id = $id;
+        $this->role = $role;
+        $this->address = $address;
+        $this->city = $city;
+        $this->zipcode = $zipcode;
     }
 
     public function getId(): int
@@ -38,7 +49,7 @@ class User {
     }
 
 
-    public function getRole(): array
+    public function getRole(): int
     {
         return $this->role;
     }
@@ -47,9 +58,20 @@ class User {
     {
         return $this->name;
     }
-
     public function getSurname(): string
     {
         return $this->surname;
+    }
+    public function getAddress(): string
+    {
+        return $this->address;
+    }
+    public function getCity(): string
+    {
+        return $this->city;
+    }
+    public function getZipcode(): string
+    {
+        return $this->zipcode;
     }
 }
