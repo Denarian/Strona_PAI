@@ -4,6 +4,8 @@ require_once 'Controllers//BoardController.php';
 require_once 'Controllers//SecurityController.php';
 require_once 'Controllers//AdminController.php';
 require_once 'Controllers//MainController.php';
+require_once 'Controllers//ReservationController.php';
+require_once 'Controllers//ErrorController.php';
 class Routing {
     private $routes = [];
 
@@ -41,8 +43,23 @@ class Routing {
             'main' => [
                 'controller' => 'MainController',
                 'action' => 'main'
+            ],
+            'reservation' => [
+                'controller' => 'ReservationController',
+                'action' => 'reservation'
+            ],
+            'roomChoice' => [
+                'controller' => 'ReservationController',
+                'action' => 'roomChoice'
+            ],
+            'forbidden' => [
+                'controller' => 'ErrorController',
+                'action' => 'forbidden'
+            ],
+            'pageNotFound' => [
+                'controller' => 'ErrorController',
+                'action' => 'pageNotFound'
             ]
-            
         ];
     }
 
@@ -50,12 +67,14 @@ class Routing {
     {
         $page = isset($_GET['page']) ? $_GET['page'] : 'main';
 
-        if (isset($this->routes[$page])) {
+        if (!isset($this->routes[$page])) {
+            $page = 'pageNotFound';
+        }
+
             $controller = $this->routes[$page]['controller'];
             $action = $this->routes[$page]['action'];
 
             $object = new $controller;
             $object->$action();
-        }
     }
 }

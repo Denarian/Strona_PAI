@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <link rel="Stylesheet" type="text/css" href="../Public/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
-    
+    <link rel="icon" href="../Public/img/logo.svg">
     <title>Palm Tree Resort</title>
 </head>
 <body>

@@ -1,0 +1,110 @@
+.callendar_item{
+    background-color: white;
+   
+    padding:0.5em;
+    margin:1em;
+    text-decoration: none;
+    text-align: center;
+    color:inherit;
+    border-color: #4C8056;
+    border-radius: 0.5em;
+    border-width: 3px;
+    border-style: solid;
+
+    color: #4C8056;
+    font-weight: bolder;
+}
+.disabled{
+    opacity: 50%;
+}
+.callendar_box > table
+{
+    width:100%;
+}
+.callendar_box 
+{
+    background-color: white;
+    border-radius: 1em;
+    padding: 1em;
+    margin: 1em;
+    
+}
+.button_box
+{
+    display: flex;
+    flex-direction: row;
+   
+}
+.button_box > div
+{
+
+    min-width: 2em; 
+    min-height: 2em;
+  
+}
+table
+{
+    border-spacing: 1em;
+}
+th
+{
+    width:3em;
+    height: 3em;
+}
+table tr:first-child > th
+{
+    background-color: #4C8056;
+    color: white;
+}
+.left_bar > a:hover, .left_bar > a:active{
+    
+    background-color: #4C8056;
+    color: white;
+}
+
+.reservation_form_left
+{
+    background-color:#4C8056 ;
+    color: white;
+    width: 37%;
+    font-size: 1em;
+    display: inline-block;
+    padding: 1em;
+    text-transform: uppercase;
+}
+.reservation_form_right
+{
+    width: 48%;
+    display: inline-block;
+    text-align: right;
+}
+.container
+{
+    flex-direction: column;
+    flex-flow: column;
+    align-items: center;
+}
+.labl {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 1em;
+    color: #4C8056;
+    font-size: 1em;
+    line-height: 2.2em;
+    margin:0.5em;
+    font-weight: bold;
+    text-align:center;
+}
+.labl > input{ /* HIDE RADIO */
+    visibility: hidden; /* Makes input not-clickable */
+    position: absolute; /* Remove input from document flow */
+}
+.labl > input + div{ /* DIV STYLES */
+    cursor:pointer;
+    border:2px solid transparent;
+    border-radius: 1em;
+}
+.labl > input:checked + div{ /* (RADIO CHECKED) DIV STYLES */
+    background-color: #4C8056;
+    color: white;
+    
+}

@@ -26,8 +26,9 @@ class SecurityController extends AppController {
                 return;
             }
 
-            $_SESSION["id"] = $user->getEmail();
+            $_SESSION['email'] = $user->getEmail();
             $_SESSION["role"] = $user->getRole();
+            $_SESSION["id"] = $user->getId();
 
             $url = "http://$_SERVER[HTTP_HOST]/";
             header("Location: {$url}?page=board");
@@ -77,8 +78,9 @@ class SecurityController extends AppController {
 
             $user = $userRepository->getUser($email);
             
-            $_SESSION["id"] = $user->getEmail();
+            $_SESSION['email'] = $user->getEmail();
             $_SESSION["role"] = $user->getRole();
+            $_SESSION["id"] = $user->getId();
 
             $url = "http://$_SERVER[HTTP_HOST]/";
             header("Location: {$url}?page=board");

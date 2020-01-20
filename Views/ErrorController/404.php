@@ -10,11 +10,14 @@
 <?php include(dirname(__DIR__).'/Common/navbar.php'); ?>
 <div class="master_container">
     <div class="container">
-        <div style="text-align: center;">
-            <h1>SOME DAY THERE WILL BE CONTENT HERE</h1><br />
-            <h3>But not today</h3><br />
-            not today...<br />
-        </div>
+    <div class="login_box">
+            <div class="logo">
+            <img src="../Public/img/logo.svg">
+            </div>
+            <div>
+                <H1>404</H1>
+                <h2>Page not Found</h2>
+            </div>
     </div>
 </div>
 </body>

@@ -21,7 +21,7 @@
             </li>
         </ul>
         <div class="navbar-font-color">
-            <i class="fas fa-user"></i> <?= $_SESSION['id'] ?>
+            <i class="fas fa-user"></i> <?= $_SESSION['email'] ?>
         </div>
         
     </div>

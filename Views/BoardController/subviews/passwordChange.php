@@ -1,6 +1,3 @@
-<?php 
-
- ?>
 <div class = "account">
 <form action="/?page=passwordChange" method="POST">
                 <div class="messages">

@@ -1,11 +1,9 @@
 <?php
-    if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
-        die('You are not logged in!');
+    if(!isset($_SESSION['email']) and !isset($_SESSION['role'])) {
+        $url = "http://$_SERVER[HTTP_HOST]/";
+        header("Location: {$url}?page=login");
     }
 
-    if($_SESSION['role'] == 0) {
-        die('You do not have permission to watch this page!');
-    }
     if(!isset($subview) or $subview == null)
     {
         $subview = 'reservations';
@@ -18,6 +16,7 @@
     <link rel="Stylesheet" type="text/css" href="../Public/css/style.css" />
     <link rel="Stylesheet" type="text/css" href="../Public/css/board.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="icon" href="../Public/img/logo.svg">
     <title>Palm Tree Resort</title>
 </head>
 <body>

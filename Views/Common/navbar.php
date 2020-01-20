@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
+    if(!isset($_SESSION['email']) and !isset($_SESSION['role'])) {
         $user_button = '<div class="navbar_items"><a href="/?page=login">Sign IN</a></div>';
     }else
     {
@@ -24,8 +24,6 @@
            <?php echo $user_button ?>
         </div>
         <div class="bookbar navbar">
-            <div class="navbar_items ">BOOK ONLINE</div>
-        </div>
-    </nav>
-    
+            <div class="navbar_items "><a href="/?page=reservation">BOOK ONLINE</a></div>
+    </div>
 </div>

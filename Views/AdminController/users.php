@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['id']) and !isset($_SESSION['role'])) {
+    if(!isset($_SESSION['email']) and !isset($_SESSION['role'])) {
         die('You are not logged in!');
     }
 
@@ -14,6 +14,7 @@
     <link rel="Stylesheet" type="text/css" href="../Public/css/style.css" />
     <link rel="Stylesheet" type="text/css" href="../Public/css/board.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="icon" href="../Public/img/logo.svg">
     <title>Palm Tree Resort</title>
 </head>
 <body>
