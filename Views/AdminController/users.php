@@ -1,10 +1,12 @@
 <?php
     if(!isset($_SESSION['email']) and !isset($_SESSION['role'])) {
-        die('You are not logged in!');
+        $url = "http://$_SERVER[HTTP_HOST]/";
+        header("Location: {$url}?page=login");
     }
 
-    if(!in_array('ROLE_USER', $_SESSION['role'])) {
-        die('You do not have permission to watch this page!');
+    if($_SESSION['role'] == 0) {
+        $url = "http://$_SERVER[HTTP_HOST]/";
+        header("Location: {$url}?page=forbidden");
     }
 ?>
 
@@ -21,9 +23,12 @@
 <?php include(dirname(__DIR__).'/Common/navbar.php'); ?>
 <div class="master_container">
 <div class="container">
+    <form action="?page=users" method="POST">
+    <button type="submit">DELETE SELECTED USERS</button>
     <table class="user_table">
         <thead>
             <tr>
+            <th scope="col"></th>
             <th scope="col">#</th>
             <th scope="col">Email</th>
             <th scope="col">Name</th>
@@ -31,8 +36,9 @@
             </tr>
         </thead>
         <tbody>
-            <?php foreach($users as $user): ?>
+            <?php foreach($users as $user): if($user->getId() == $_SESSION['id'])continue; ?>
                     <tr>
+                    <th><input type="checkbox" name="id[]" value="<?php echo $user->getId();?>"></th>
                     <th scope="row"><?= $user->getId(); ?></th>
                     <td><?= $user->getEmail(); ?></td>
                     <td><?= $user->getName(); ?></td>
@@ -41,7 +47,9 @@
             <?php endforeach ?>
         </tbody>
     </table>
+    </form>
 </div>
 </div>
+
 </body>
 </html>

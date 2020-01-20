@@ -22,7 +22,8 @@ class BoardController extends AppController {
                 $data[] = [
                     'from' => $res->getFrom(),
                     'to' => $res->getTo(),
-                    'standard' => $res->getRoom()->getStandard()
+                    'standard' => $res->getRoom()->getStandard(),
+                    'location' => $res->getRoom()->getLocation()
                 ];
             }
         }else

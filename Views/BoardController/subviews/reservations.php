@@ -7,6 +7,7 @@ if($resevations != null){
     $from = $res['from'];
     $to = $res['to'];
     $standard = $res['standard'];
+    $location = $res['location'];
     $table .= <<<HTML
             <div class="reservation">
                 <table>
@@ -14,13 +15,13 @@ if($resevations != null){
                   <th>Since:</th>
                   <th>To:</th>
                   <th>Standard:</th>
-                  <th>Status:</th>
+                  <th>Location:</th>
                 </tr>
                 <tr>
                   <th>$from</th>
                   <th>$to</th>
                   <th>$standard</th>
-                  <th>dummy status</th>
+                  <th>$location</th>
                 </tr>    
                 </table>
             </div>

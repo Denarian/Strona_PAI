@@ -4,6 +4,10 @@
     <link rel="Stylesheet" type="text/css" href="../Public/css/style.css" />
     <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="icon" href="../Public/img/logo.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../Public/js/login.js"></script>
+
     <title>Palm Tree Resort</title>
 </head>
 <body>
@@ -27,13 +31,13 @@
                 <div>
                     <div class="reg_form_left">Email</div>
                     <div class="reg_form_right">
-                        <input class="reg_form" name="email" type="text" placeholder="email@email.com">
+                        <input id="email" class="reg_form" name="email" type="email" placeholder="email@email.com" required>
                     </div>
                 </div>
                 <div>
                     <div class="reg_form_left">Password</div>
                     <div class="reg_form_right">
-                        <input class="reg_form" name="password" type="password" placeholder="password">
+                        <input class="reg_form" name="password" type="password" placeholder="password" required>
                     </div>
                 </div>
                 <button type="submit">CONTINUE</button>

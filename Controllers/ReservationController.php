@@ -59,8 +59,19 @@ class ReservationController extends AppController {
         if ($this->isPost()) 
         {
             $roomId = $_POST['roomId'];
+            $roomRepo = new RoomRepository();
+            
             if(isset( $_SESSION['reservation']) and in_array($roomId, $_SESSION['reservation']['rooms']))
             {   
+                foreach($_SESSION['reservation']['rooms'] as $room)
+                    if(! $roomRepo->checkRoomState($room))
+                        {
+                            $url = "http://$_SERVER[HTTP_HOST]/";
+                            header("Location: {$url}?page=forbidden");
+                            unset($_SESSION['reservation']);
+                            return;
+                        }
+
                 $reservationRepo = new ReservationRepository();
                 $reservation = new Reservation(
                     0,
@@ -81,6 +92,7 @@ class ReservationController extends AppController {
             {
                 $url = "http://$_SERVER[HTTP_HOST]/";
                 header("Location: {$url}?page=forbidden");
+                unset($_SESSION['reservation']);
                 return;
             }
         }

@@ -8,6 +8,14 @@
     {
         $subview = 'reservations';
     }
+    if($_SESSION['role'] != 0)
+    {
+        $adminBtn = '<a href="/?page=users">Users</a>';
+    }
+    else
+    {
+        $adminBtn = '';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +35,7 @@
                 <a href="/?page=board">Your reservations</a>
                 <a href="/?page=accountDetails">Account details</a>
                 <a href="/?page=passwordChange">Password change</a>
+                <?php echo $adminBtn; ?>
                 <a href="/?page=logout">Sign out</a>
         </div>
         <div class="board">

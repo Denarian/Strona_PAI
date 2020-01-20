@@ -24,19 +24,22 @@ class ReservationRepository extends Repository
         $userId = $reservation->getUserId();
         $roomId = $reservation->getRoom()->getId();
 
-        $stmt = $this->database->connect()->prepare(
+        $dbCon = $this->database->connect();
+        $dbCon->beginTransaction();
+
+        $stmt = $dbCon->prepare(
             'INSERT INTO `reservations` (`from`, `to`, `room_id`, `user_id`) VALUES(?,?,?,?);
             ');
         $stmt->execute([$from, $to,$roomId, $userId]);
 
-        $stmt = $this->database->connect()->prepare(
-            'UPDATE rooms SET `lock` = 0 where `id` = ?'
+        $stmt = $dbCon->prepare(
+            'UPDATE rooms SET `lock_timestamp` = null where `id` = ?'
             );
         foreach($roomsToFree as $id)
         {
             $stmt->execute([$id]);
         }
-        
+        $dbCon->commit();
     }
 
 

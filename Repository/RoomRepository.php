@@ -7,9 +7,9 @@ class RoomRepository extends Repository
     public function getRoom(int $roomId)
     {
         $stmt = $this->database->connect()->prepare(
-            'SELECT r.id, s.type, b.name as `building`, f.name as `floor`
-            FROM rooms r, floor f, standards s, buildings b
-            WHERE r.standard_id = s.id and r.floor_id = f.id and f.building_id = b.id and r.id  =  ?;
+            'SELECT *
+            FROM displayRooms
+            WHERE id  =  ?;
             ');
             $stmt->execute([$roomId]);
             $room = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -19,26 +19,40 @@ class RoomRepository extends Repository
         return new Room(
             $room['id'],
             $room['type'],
-            $room['building'].' '.$room['floor']    
+            $room['location']    
         );
     }
     public function getRooms()
     {
         $stmt = $this->database->connect()->prepare(
-            'SELECT r.id, s.type, b.name, f.name
-            FROM rooms r, floor f, standards s, buildings b
-            WHERE r.standard_id = s.id and r.floor_id = f.id and f.building_id = b.id');
+            'SELECT *
+            FROM displayRooms');
             $stmt->execute([$roomId]);
-            $rooms = $stmt->fetch(PDO::FETCH_ASSOC);
+            $rooms = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($rooms as $room) {
                 $result[] = new Room(
                     $room['id'],
                     $room['type'],
-                    $room['b.name'].' '.$room['f.name']    
+                    $room['location']    
                 );
             }
     
             return $result;
+    }
+    public function checkRoomState(int $roomId)
+    {
+        $stmt = $this->database->connect()->prepare(
+            'SELECT id
+            FROM rooms 
+            WHERE id  =  ? AND `lock_timestamp` IS NOT NULL;
+            ');
+            $stmt->execute([$roomId]);
+            $room = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($room == false) {
+                return FALSE;
+            }
+            return TRUE;
+
     }
 }

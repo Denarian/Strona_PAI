@@ -89,4 +89,21 @@ class SecurityController extends AppController {
 
         $this->render('register');
     }
+    public function check_email()
+    {
+        if ($this->isPost() and isset($_POST['email']))
+        {
+            $userRepository = new UserRepository();
+            $user = $userRepository->getUser($_POST['email']);
+            if($user == false)
+            {
+                echo "false";/*jesli nie ma w bazie to wyslij false*/
+            }
+            else
+            {
+                echo "true";
+            }
+        
+        }
+    }
 }

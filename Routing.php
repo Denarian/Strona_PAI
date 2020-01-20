@@ -36,6 +36,10 @@ class Routing {
                 'controller' => 'SecurityController',
                 'action' => 'logout'
             ],
+            'check_email' => [
+                'controller' => 'SecurityController',
+                'action' => 'check_email'
+            ],
             'users' => [
                 'controller' => 'AdminController',
                 'action' => 'users'

@@ -119,6 +119,11 @@ form > div
     width: 100%;
     color: white;
 }
+
+.error
+{
+    border: 2px solid darkred;
+}
 .reg_form_right
 {
     width: 60%;

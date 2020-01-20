@@ -82,4 +82,12 @@ class UserRepository extends Repository {
         $newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
         $stmt->execute([$newPassword, $email]);
     }
+    public function removeUser($userId)
+    {
+        $stmt = $this->database->connect()->prepare('
+        DELETE FROM `users` 
+        WHERE `id` = ? 
+        ');
+        $stmt->execute([$userId]);
+    }
 }
