@@ -31,7 +31,7 @@
                 <div>
                     <div class="reg_form_left">Email</div>
                         <div class="reg_form_right">
-                            <input id="email" class="reg_form" name="email" type="email" placeholder="email@email.com" required>
+                            <input id="email" class="reg_form" name="email" type="email" placeholder="email@email.com" required autofocus>
                         </div>
                     </div>    
                 <div>
