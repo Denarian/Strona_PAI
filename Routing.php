@@ -44,6 +44,10 @@ class Routing {
                 'controller' => 'AdminController',
                 'action' => 'users'
             ],
+            'currentResevations' => [
+                'controller' => 'AdminController',
+                'action' => 'currentResevations'
+            ],
             'main' => [
                 'controller' => 'MainController',
                 'action' => 'main'

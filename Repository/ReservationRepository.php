@@ -187,25 +187,24 @@ class ReservationRepository extends Repository
     {
         $stmt = $this->database->connect()->prepare(
             'SELECT *
-            FROM reservations
+            FROM showreservations
             WHERE `from` < CURRENT_DATE and `to` >  CURRENT_DATE
             ');
-            $stmt->execute([$user_id]);
+            $stmt->execute();
             $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if($reservations == false) {
+            if($reservations == false)
+            {
                 return null;
             }
-            foreach ($reservations as $reservation) {
-                $result[] = new Reservation(
-                    $reservation['id'],
-                    $reservation['from'],
-                    $reservation['to'],
-                    $reservation['room_id'],
-                    $reservation['user_id']    
-                );
-            }
     
-            return $result;
+            return $reservations;
     }
-
+    public function removeReservation(int $id)
+    {
+        $stmt = $this->database->connect()->prepare(
+            'DELETE FROM showreservations
+            WHERE `id` = ? 
+            ');
+            $stmt->execute([$id]);
+    }
 }

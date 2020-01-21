@@ -12,7 +12,7 @@
         <img src="../Public/img/logo.svg">
     </div>
         <div class="mainbar navbar">
-        <div class="navbar_items">HOTEL</div>
+        <div class="navbar_items"><a href="/">HOTEL</a></div>
         <div class="navbar_items">PACKAGES</div>
         <div class="navbar_items">RESTARURANT</div>
         <div class="navbar_items">EVENTS</div>
